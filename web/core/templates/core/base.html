@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tu Apoyo Latino</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZRV6N3r9k4P3jGt/xFpF8l5FU9mPeuY9B/c/W3TmUUJ/YyXPSE5EQ3fCLBoMQ7kPdHeG2t61RzkmImenHF1bHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/tuapoyoL.png' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" style="height: 200px; padding-top: 5px; padding-bottom: 5px;">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#!">
+                    <img src="{% static 'core/assets/img/tuapoyoL.png' %}" alt="Logo" class="img-fluid" style="max-height: 350px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cursos' %}">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'eventos' %}">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'recursos' %}">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'testimonios' %}">Testimonios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">Galeria</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cyp' %}">Colaboraciones y Patrocinadores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block content %}{% endblock %}
+
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-oWBfdCbl9WBqGMit+tpFyg/CSTd2Cd0T/3Mdy41Z/dn2xy/GmE3u7Sq5zLzNNOvx3pQ8q8MW4U2/9d17ZSo75A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-W8Wg2TRM/BQrOuqkL1pN9CrWTfGfsWnKWSiIjsIRZUL7JzUKa6zBf04cN9/I4aYocnd+OM9uWG4FnYZfHkrT8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <!-- Bibliotecas para la galería -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-oWBfdCbl9WBqGMit+tpFyg/CSTd2Cd0T/3Mdy41Z/dn2xy/GmE3u7Sq5zLzNNOvx3pQ8q8MW4U2/9d17ZSo75A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-W8Wg2TRM/BQrOuqkL1pN9CrWTfGfsWnKWSiIjsIRZUL7JzUKa6zBf04cN9/I4aYocnd+OM9uWG4FnYZfHkrT8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <!-- Agrega estas líneas al final del cuerpo HTML -->
+    </body>
+</html>
