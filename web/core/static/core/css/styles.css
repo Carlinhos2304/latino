@@ -10915,8 +10915,207 @@ p {
 }
 
 
+/* CSS Registro */
+
+/* Estilos generales */
+.registro-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-heading h2 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    color: #333;
+}
+
+/* Estilos del formulario de registro */
 
 
+.form-outline label {
+  position: absolute;
+  pointer-events: none;
+  left: 10px; /* Ajusta según sea necesario para la posición deseada */
+  top: 10px; /* Ajusta según sea necesario para la posición deseada */
+  transition: 0.2s ease-out;
+}
+
+.form-outline input:focus ~ label,
+.form-outline input:not(:placeholder-shown) ~ label {
+  top: -15px; /* Ajusta según sea necesario para la posición deseada */
+  font-size: 0.75rem;
+  color: initial;
+}
+
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #777;
+    transition: 0.3s;
+}
+
+.form-auth-md {
+    width: 100%;
+}
+
+.form-auth-mdb {
+    width: 100%;
+}
+
+/* Estilos de los botones */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+
+
+
+
+/* Estilos generales LOGIN */
+.login-container {
+  max-width: 400px;
+  margin-top: 150px !important;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-heading h2 {
+  font-size: 32px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+}
+
+.form-outline {
+  position: relative;
+}
+
+.form-outline label {
+  position: absolute;
+  pointer-events: none;
+  left: 11px; /* Ajusta según sea necesario para la posición deseada */
+  top: 11px; /* Ajusta según sea necesario para la posición deseada */
+  transition: 0.2s ease-out;
+}
+
+.form-outline input:focus ~ label,
+.form-outline input:not(:placeholder-shown) ~ label {
+  top: -15px; /* Ajusta según sea necesario para la posición deseada */
+  font-size: 0.75rem;
+  color: initial;
+}
+
+
+
+.form-outline input:not(:placeholder-shown) {
+    padding-top: 1.25rem;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #777;
+  transition: 0.3s;
+}
+
+.form-auth-md {
+  width: 100%;
+}
+
+/* Estilos de los botones */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* NAV CSS */
+.navbar-item {
+  margin-right: 10px;
+}
+
+.navbar-nav li{
+  margin-right: 10px;
+}
+
+.navbar{
+  margin-bottom: 10px;
+}
+
+.custom-btn {
+  font-size: 16px;
+  width: 120px;
+}
+
+.nav-item:last-child{
+  margin-right: 0;
+}
+
+/* ANIMACION SECCIONES NAV */
+.nav-item a {
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item a:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+
+/* AJUSTES DE NAV CUANDO ESTE RESPONSIVO */
+
+@media (max-width: 781px) {
+  .navbar-nav li a {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .navbar {
+    min-height: 700px; 
+  }
+
+  .custom-btn {
+    font-size: 14px;
+  }
+}
 
 
 

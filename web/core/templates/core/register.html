@@ -3,16 +3,16 @@
 
 
 {% block content %}
-
+<br>
 <div class="registro-container">
     <div class="registro-heading">
         <h2>Registro</h2>
         <br>
     </div>
-    <div class="tab-content" id="tab-content">
-        <div class="tab-pane fade show active" id="navbarLogin-login" role="tabpanel"> 
-            <form id="register" class="text-center" action="{% url 'signup'%}" method="post">
-                {% csrf_token %}
+    
+        <div class="tab-pane fade show active" id="navbarLogin-signup" role="tabpanel"> 
+            <form id="register" class="text-center" action="{% url 'signup'%}" method="POST">
+                {% csrf_token %}{% csrf_token %}{% csrf_token %}
                 
                 <div class="form-outline form-auth-md mb-4">
                 
@@ -43,6 +43,7 @@
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br>
 
 
 

@@ -11,25 +11,25 @@
     </div>
     <div class="tab-content" id="tab-content">
         <div class="tab-pane fade show active" id="navbarLogin-login" role="tabpanel">
-            <form id="login" class="text-center" action="{% url 'login' %}" method="post">
+            <form id="login" class="text-center" action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 
                 <div class="form-outline form-auth-md mb-4">
-                   
-                    <label class="form-label" style="margin-left: 0px;">Nombre</label>
+                    <label class="form-label" style="text-dark">Nombre:</label>
                     {{ loginForm.nombre }}
                 </div>
                 
+                
                 <div class="form-outline form-auth-md mb-4">
                     
-                    <label class="form-label" style="margin-left: 0px;">Correo Electronico</label>
+                    <label class="form-label" style="margin-left: 0px;">Correo Electronico:</label>
                     {{ loginForm.correo }}
                 </div>
                 
 
                 <div class="form-outline form-auth-md mb-4">
 
-                    <label class="form-label" style="margin-left: 0px;">Contraseña</label>
+                    <label class="form-label" style="margin-left: 0px;">Contraseña:</label>
                     {{ loginForm.password }}
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar</button>
@@ -37,6 +37,7 @@
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 {% endblock %}
