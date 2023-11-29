@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     // Configura la velocidad de cambio (en milisegundos)
     $('#miCarrusel').carousel({
-        interval: 2000 // Cambiar cada 2 segundos
+        interval: 1000 // Cambiar cada 2 segundos
     });
 });
 // FIN

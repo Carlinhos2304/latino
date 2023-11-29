@@ -2,6 +2,15 @@
 {% load static %}
 {% block content %}
 
+
+<div class="banner-section">
+    <img src="{% static 'core/assets/imgGaleria/banner.webp' %}" class="img-fluid" alt="Banner Image">
+    <div class="banner-content">
+        <h1>Tu Apoyo Latino</h1>
+    </div>
+</div>
+
+
         <!-- Carrusel de Imágenes 1077x715 de alto -->
         <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -35,8 +44,8 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <br>
-        <br>
+        <br><br><br>
+       
 
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
@@ -48,44 +57,50 @@
                     <h1 class="font-weight-light">Tu Apoyo Latino</h1>
                     <br>
                     <p>En Tu Apoyo Latino, nos dedicamos a empoderar a la comunidad latina a través de asesoramiento integral y servicios especializados. Nuestra firma consultora se distingue por ofrecer un respaldo sólido para que los individuos latinoamericanos alcancen sus sueños y metas. Desde la adquisición de viviendas hasta la educación financiera, proporcionamos recursos y orientación experta que permiten a nuestros clientes superar desafíos y avanzar hacia el logro de sus objetivos. En Tu Apoyo Latino, creemos en el potencial ilimitado de cada persona y nos comprometemos a ser el catalizador que impulsa el éxito y el bienestar en la comunidad latina.</p>
-                    <a class="btn btn-primaryy" href="{% url 'contactoF' %}">Contactanos!</a>
+                    <a class="btn btn-primary" href="{% url 'contactoF' %}">Contactanos!</a>
+
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
             </div>
-            <!-- Content Row-->
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Card One</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+
+            
+            <!-- Content VISION Y MISION-->
+            <div class="container px-4 px-lg-5">
+                <!-- Misión y Visión Row -->
+                <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                    <!-- Misión Columna -->
+                    <div class="col-lg-6 mb-4 mb-lg-0 order-lg-1">
+                        <h2 class="font-weight-light text-center text-lg-start mb-4" style="margin-left:200px">Misión</h2>
+                        <p>La misión de Tu Apoyo Latino es ser el núcleo de conexión y empoderamiento, actuando como un vínculo vital entre la comunidad, las empresas y los recursos disponibles. Su objetivo es establecer una red dinámica e informada, promoviendo la accesibilidad, inclusión y difusión de información valiosa. La dedicación de la organización se centra en mejorar el bienestar y éxito de individuos y empresas en la comunidad latina. Tu Apoyo Latino sostiene la creencia de que una comunidad conectada e informada es fundamental para desbloquear oportunidades, fomentar la colaboración y construir una base sólida para el crecimiento. En conjunto, trabajan hacia un futuro no solo robusto, sino también vibrante, para todos.</p>
+                    </div>
+                    <!-- Imagen Misión Columna -->
+                    <div class="col-lg-6 order-lg-2 text-center">
+                        <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="img-fluid rounded" alt="Misión Image">
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Card Two</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+            
+                <!-- Visión y Imagen Row -->
+                <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                    <!-- Visión Columna -->
+                    <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
+                        <h2 class="font-weight-light text-center text-lg-start mb-4" style="margin-left:200px">Visión</h2>
+                        <p>En el futuro, Tu Apoyo Latino visualiza un ecosistema sólido de apoyo a personas y empresas.
+                            A través de programas de tutoría, acceso a financiación y asociaciones estratégicas, nuestro
+                            objetivo es incubar y nutrir a los aspirantes a empresarios dentro de la comunidad latina. Este
+                            sistema de apoyo integral no sólo ayuda a las empresas a sobrevivir sino a prosperar,
+                            contribuyendo significativamente a la prosperidad económica de toda la comunidad.</p>
                     </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Card Three</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    <!-- Imagen Visión Columna -->
+                    <div class="col-lg-6 order-lg-1 text-center">
+                        <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="img-fluid rounded" alt="Visión Image">
                     </div>
                 </div>
             </div>
-        </div>
+            
+        
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

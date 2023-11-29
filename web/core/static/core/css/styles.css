@@ -11087,7 +11087,7 @@ p {
   margin-right: 0;
 }
 
-/* ANIMACION SECCIONES NAV */
+/* ANIMACION SECCIONES NAV 
 .nav-item a {
   transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -11095,6 +11095,7 @@ p {
 .nav-item a:hover {
   transform: scale(1.2);
 }
+*/
 
 
 
@@ -11119,4 +11120,154 @@ p {
 
 
 
+
+/* Estilos CSS para el banner DE MI INDEX.HTML */
+
+/* Estilos del banner y del texto */
+.banner-section {
+  margin-top: -10px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  overflow: hidden; /* Evita que la imagen se desborde */
+}
+
+.banner-section img {
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: none; /* No establecer un máximo ancho */
+  margin: 0 auto; /* Centra la imagen en el contenedor */
+  display: block;
+  filter: blur(4px); /* Ajusta la cantidad de difuminado según tu preferencia */
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Color del texto en el banner */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra de texto para resaltar */
+}
+
+/* Estilos del texto en tamaño grande */
+.banner-content h1 {
+  font-size: 3rem; /* Ajusta el tamaño del texto según tu preferencia */
+  font-weight: bold; /* Texto en negrita */
+  font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' por la fuente que prefieras */
+  letter-spacing: 2px; /* Ajusta el espaciado entre letras según tu preferencia */
+  color: #f0f0f0; /* Cambia el color del texto según tu preferencia */
+  animation: shine 3s infinite; /* Aplica la animación con duración de 3 segundos y repetición infinita */
+}
+
+/* Estilos del texto en tamaño responsivo */
+@media (max-width: 781px) {
+  .banner-content h1 {
+    font-size: 2rem; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+    max-width: 100%; /* Elimina la limitación del ancho máximo */
+    margin: 0 auto; /* Centra el texto horizontalmente en pantallas pequeñas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Animación de brillo */
+@keyframes shine {
+  0% { color: #f0f0f0; } /* Color inicial */
+  50% { color: #ffd700; } /* Color brillante (amarillo dorado) */
+  100% { color: #f0f0f0; } /* Vuelve al color inicial */
+}
+
+
+
+/* AJUSTES DE MISION Y VISION INDEX.HTML */
+
+@media (max-width: 781px) {
+  .container h2 {
+    margin-left: -10px !important; 
+  }
+  .container img{
+    margin-left: 60px;
+  }
+}
+
+
+
+
+/* AJUSTES IMAGEN DE TITULO APOYO LATINO */
+@media (max-width: 781px) {
+  .col-lg-7 img {
+    margin-left: 10px !important; 
+  }
+}
+  
+
+/* GALERIA DE IMAGENES  seccion IMAGEN*/
+
+.containerG {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.containerG h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  position: relative;
+  font-size: 2.5rem; /* Ajusta el tamaño del texto según tu preferencia */
+  font-family: 'Oswald', sans-serif;
+}
+
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px; /* Ajusta el valor según sea necesario */
+}
+
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Estilos específicos para dispositivos con un ancho de pantalla menor a 781px */
+@media screen and (max-width: 780px) {
+  .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+
+  .image {
+      margin-bottom: 20px;
+  }
+}
 
