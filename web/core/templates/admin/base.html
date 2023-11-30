@@ -1,0 +1,184 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+<head>
+<!-- Titulo -->
+<title>{% block title %}{% endblock %}</title>
+
+<!-- Estilos -->
+<link rel="stylesheet" href="{% block stylesheet %}{% static 'core/css/base.css' %}{% endblock %}">
+<link rel="stylesheet" href="{% block stylesheet2 %}{% static 'core/css/stylesAdmin.css' %}{% endblock %}">
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="..." crossorigin="anonymous">
+
+<!-- Estilos Extras -->
+{% block extrastyle %}{% endblock %}
+
+<!--Idioma actual es bidireccional -->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" href="{% block stylesheet_rtl %}{% static 'admin/css/rtl.css' %}{% endblock %}">{% endif %}
+
+<!--Extras Head -->
+{% block extrahead %}{% endblock %}
+
+<!--Responsive -->
+{% block responsive %}
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}">
+    {% if LANGUAGE_BIDI %}<link rel="stylesheet" href="{% static 'admin/css/responsive_rtl.css' %}">{% endif %}
+{% endblock %}
+
+<!--Motores de busqueda¿?-->
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+</head>
+
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="./base.html">Tu Apoyo Latino</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-dark btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+                          {% csrf_token %}
+                          <button class="btn btn-light btn-lg" type="submit">{% translate 'Log out' %}</button>
+                        </form>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+          <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+              <div class="sb-sidenav-menu">
+                  <div class="nav">
+                      <div class="sb-sidenav-menu-heading">Menu</div>
+                      <a class="nav-link" href="/admin/">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-wrench"></i> <span style="margin-right: 8px;"></span>Panel de control
+                      </a>
+                      <a class="nav-link collapsed" href="/admin/core/usuario/" data-bs-toggle="collapse" data-bs-target="#collapseUsuarios" aria-expanded="false" aria-controls="collapseUsuarios">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-user"></i><span style="margin-right: 8px;"></span> Usuarios
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseUsuarios" aria-labelledby="headingUsuarios" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="/admin/core/userprofile/add/"><i class="fa-solid fa-plus"></i><span style="margin-right: 8px;"></span> Agregar</a>
+                              <a class="nav-link" href="/admin/core/userprofile/"><i class="fa-solid fa-marker"></i><span style="margin-right: 8px;"></span> Editar</a>
+                          </nav>
+                      </div>
+                      
+                      <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEventos" aria-expanded="false" aria-controls="collapseEventos">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-location-dot"></i><span style="margin-right: 8px;"></span> Eventos
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseEventos" aria-labelledby="headingEventos" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="/admin/core/eventos/add/"><i class="fa-solid fa-plus"></i><span style="margin-right: 8px;"></span> Agregar</a>
+                              <a class="nav-link" href="/admin/core/eventos/"><i class="fa-solid fa-marker"></i><span style="margin-right: 8px;"></span> Editar</a>
+                          </nav>
+                      </div>
+                      <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCursos" aria-expanded="false" aria-controls="collapseCursos">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-chalkboard-user"></i><span style="margin-right: 8px;"></span> Cursos
+                          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                      </a>
+                      <div class="collapse" id="collapseCursos" aria-labelledby="headingCursos" data-bs-parent="#sidenavAccordion">
+                          <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="/admin/core/cursos/add/"><i class="fa-solid fa-plus"></i><span style="margin-right: 8px;"></span> Agregar</a>
+                              <a class="nav-link" href="/admin/core/cursos/"><i class="fa-solid fa-marker"></i><span style="margin-right: 8px;"></span> Editar</a>
+                          </nav>
+                      </div>
+                      <a class="nav-link" href="/activity/">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-chart-line"></i><span style="margin-right: 8px;"></span> Actividad
+                      </a>
+                      <a class="nav-link" href="/inbox/">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-envelope"></i><span style="margin-right: 8px;"></span> Bandeja de Entrada
+                      </a>
+                      <a class="nav-link" href="/calendar/">
+                          <div class="sb-nav-link-icon"></div>
+                          <i class="fa-solid fa-calendar-days"></i> <span style="margin-right: 8px;"></span> Calendario
+                      </a>
+                      <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                          <!-- ... (resto de tus enlaces) ... -->
+                      </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+      <div class="headerbackground">
+      <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+<!-- Container -->
+<div id="container">
+
+  <!-- Header -->
+
+  <div class="main" id="main">
+    <!-- Navbar -->
+      <!-- Content Start -->
+    <div id="content-start" class="content" tabindex="-1">
+
+      <!-- Titulos -->
+      <div id="content" class="{% block coltype %}colM{% endblock %}">
+        {% block pretitle %}{% endblock %}
+        <div class="image-with-heading">
+        {% block content_title %}{% if title %}
+          <h1>{{title}}</h1>
+        {% endif %}{% endblock %}
+      </div>
+        {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
+    </div>
+      <!-- Content -->
+      
+        {% block content %}
+          {% block object-tools %}{% endblock %}
+          {{ content }}
+        {% endblock %}
+      </div>
+    </div>
+        <br class="clear">
+      </div>
+            </div>
+        </main>                          
+                  
+
+
+
+        <!-- Footer -->
+        {% block footer %}<div id="footer"></div>{% endblock %}
+      </div>
+    </div>
+</div>
+<!-- END Container -->
+<!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="{% static 'core/js/scripts.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="assets/demo/chart-area-demo.js"></script>
+  <script src="assets/demo/chart-bar-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+  <script src="js/datatables-simple-demo.js"></script>
+<!-- SVGs -->
+<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+</svg>
+<!-- END SVGs -->
+</body>
+</html>

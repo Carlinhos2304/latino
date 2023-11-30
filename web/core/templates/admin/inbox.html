@@ -1,0 +1,237 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %} Bandeja de Entrada | {{ site_title|default:_('Tu Apoyo Latino Admin') }}{% endblock %}
+
+{% block branding %}
+<h1>Bandeja de Entrada</h1>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <!--Pantalla Izquierda-->
+    <div class="all-row">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card px-2 py-2">
+            <div class="row justify-content-start">
+              <div class="col-1">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+              </div>
+              <div class="col-11">
+                  <input type="text" class="form-control" placeholder="Buscar " aria-label="Buscar " aria-describedby="button-addon2">   
+              </div>
+            </div>
+            <table id="datatablesSimple1" class="table table-hover no-select">
+                <!-- Tabla -->
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Asunto</th>
+                    <th>Fecha</th>
+                  </tr>
+                </thead>
+                {# % for msg in messages % #}
+                <tbody>
+                  <tr>
+                    <!--Editar campo de username-->
+                      <td>{{ msg.nombre }}</td>
+                      <td>{{ msg.asunto }}</td>
+                      <td>{{ msg.creado }}</td>
+                      <td class="none">{{ msg.mensaje }}</td>
+                      <!--Editar campo de email-->
+                      <td class="none">{{ msg.correo }}</td>
+                      <td class="none">{{ msg.id }}</td>
+                  </tr>
+                </tbody>
+                {# % endfor % #}
+            </table>
+          </div>
+        </div>
+        <!--Pantalla Derecha-->
+        <div class="col-md-6">
+            <div class="right-center-container">
+                <img id="img" src="https://cdn.discordapp.com/attachments/1148446123875389500/1179629015926046802/3.png?ex=657a7a21&is=65680521&hm=9f382a846271568ec43a4fcd47385574b63909d1fca807f4ad227485ec4bc2e3&" width="420em" alt="" style="margin-left: 100px;">
+            </div>
+            <div class="card d-none" id="formContent"> <!-- Ocultar todo el contenedor -->
+                <div class="card-header">
+                    <i class="fas fa-envelope"></i>
+                    Contenido del Formulario
+                </div>
+                <div class="card-body">
+                    <p><strong>Nombre:</strong> <span id="detailFrom"></span></p>
+                    <p><strong>Correo:</strong> <span id="detailMail"></span></p>
+                    <p><strong>Fecha:</strong> <span id="detailDate"></span></p>
+                    <p><strong>Asunto:</strong> <span id="detailSubject"></span></p>
+                    <hr>
+                    <p><strong>Mensaje:</strong></p> <p id="detailContent"></p> 
+                </div>
+                <div class="botones">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button id="btnResponder" class="btn btn-primary mt-2">Responder</button>
+                    <form action="{% url 'eliminar_mensaje' %}" method="POST">
+                      {% csrf_token %}
+                      <input class="none" type="int" id="message_id" name="message_id">
+                      <button id="btnEliminar" class="btn btn-danger mt-2">Eliminar</button>
+                      </form>
+                  </div>
+                </div>
+
+            <!--Formulario para Responder-->
+            <div class="card-body d-none" id="replyArea">
+                <form method="POST" action="{% url 'responder_mensaje' %}">
+                  {% csrf_token %}
+
+                  <input class="none" type="text" id="nombre" name="nombre">
+                  <input class="none" type="text" id="asunto" name="asunto">
+                  <input class="none" type="text" id="correo" name="correo">
+
+                  <textarea id="mensaje" name="mensaje" class="form-control" rows="4" placeholder="Escribe tu respuesta aquí"></textarea><br>
+                  <button id="sendReply" class="btn btn-primary">Enviar</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<!-- aqui empieza la magia -->
+<script>
+$(document).ready(function () {
+// Variable de control para el cuadro de respuesta
+var replyAreaVisible = false;
+
+// Ocultar el área de respuesta al cargar la página
+$('#replyArea').addClass('d-none');
+
+// Código para enviar la respuesta
+$('#sendReply').on('click', function () {
+var replyText = $('#replyContent').val();
+if (replyText.trim() !== '') {
+console.log("Reply:", replyText);
+
+// Ocultar el área de respuesta después de enviar la respuesta
+$('#replyArea').addClass('d-none').removeClass('selected');
+replyAreaVisible = false;
+
+// Restaurar el área de selección y ocultar el contenido del formulario
+$('#selectElementMessage').removeClass('d-none');
+$('#img').removeClass('d-none');
+$('#formContent').addClass('d-none');
+
+// Restaurar estilos de filas
+$('#datatablesSimple1 tbody tr').removeClass('selected');
+
+// Ocultar contenido del formulario
+$('#messageContent').find('p:not(#initialMessage)').hide();
+
+// Borrar el contenido del textarea
+$('#replyContent').val('');
+} else {
+alert("Please write a reply before sending.");
+}
+});
+
+// Para hacer clic en una fila de la tabla
+$('#datatablesSimple1 tbody tr').on('click', function () {
+// Ocultar el área de respuesta si está visible
+if (replyAreaVisible) {
+$('#replyArea').addClass('d-none').removeClass('selected');
+replyAreaVisible = false;
+}
+
+// Mostrar contenedor del formulario
+$('#formContent').removeClass('d-none'); 
+$('#selectElementMessage').addClass('d-none');
+$('#img').addClass('d-none');
+$('#initialMessage').hide();
+$('#messageContent').find('p:not(#initialMessage)').show();
+$('#datatablesSimple1 tbody tr').removeClass('selected');
+$(this).addClass('selected');
+var from = $(this).find('td:eq(0)').text();
+var subject = $(this).find('td:eq(1)').text();
+var date = $(this).find('td:eq(2)').text();
+var content = $(this).find('td:eq(3)').text();
+var email = $(this).find('td:eq(4)').text();
+var msg_id = $(this).find('td:eq(5)').text();
+var correo = document.getElementById("correo");
+correo.value =  email;
+var asunto = document.getElementById("asunto");
+asunto.value = subject;
+var mensaje_id = document.getElementById("message_id");
+mensaje_id.value = msg_id;
+$('#detailFrom').text(from);
+$('#detailMail').text(email)
+$('#detailSubject').text(subject);
+$('#detailDate').text(date);
+$('#detailContent').text(content);
+});
+
+
+
+// Con esto funciona el botón de búsqueda
+$('#button-addon2').on('click', function () {
+var searchText = $('.form-control').val().toLowerCase();
+$('#datatablesSimple1 tbody tr').hide().each(function () {
+var name = $(this).find('td:eq(0)').text().toLowerCase();
+var subject = $(this).find('td:eq(1)').text().toLowerCase();
+if (name.includes(searchText) || subject.includes(searchText)) {
+    $(this).show();
+}
+});
+});
+
+// Mostrar u ocultar el área de respuesta al hacer clic en el botón "Responder"
+$('#btnResponder').on('click', function () {
+// Mostrar el cuadro de respuesta solo si no está visible
+if (!replyAreaVisible) {
+$('#replyArea').removeClass('d-none selected');
+replyAreaVisible = true;
+
+
+// Realiza acciones adicionales si el área de respuesta está visible
+// Coloca el foco en el textarea de respuesta
+$('#replyContent').focus();
+} else {
+// Ocultar el área de respuesta en clics subsiguientes
+$('#replyArea').addClass('d-none').removeClass('selected');
+replyAreaVisible = false;
+}
+});
+});
+
+ var nombre = document.getElementById("nombre");
+
+nombre.value = "jose";
+
+
+
+
+</script>
+
+<style>
+
+  .no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+</style>
+
+</div>
+{% endblock %}
+
+
+
+{% block content_title %}
+<h1><i class="fa-regular fa-envelope"></i> Bandeja de Entrada</h1>
+{% endblock %}

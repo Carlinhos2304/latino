@@ -1,0 +1,153 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %} {{ block.super }} <link rel="stylesheet" href="{% static 'admin/css/stats.css' %}"> {% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <div class="card_inicio">
+    <div class="card">
+      <div class="card-header">
+        Vista General
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 bootCols">
+              <div class="stats-block">
+                <div class="col">
+                  <div class="stats-block2">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                      <div class="card-body2">
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-title text-uppercase text-muted mb-0">Usuarios</h4>
+                            <span class="h2 font-weight-bold mb-0">{{countUser}}</span>
+                          </div>
+                            <div class="col-auto">
+                              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="fas fa-chart-bar"></i>
+                              </div>
+                            </div>
+                              <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                <span class="text-nowrap">Since last month</span>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stats-block">
+                <div class="col">
+                  <div class="stats-block2">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                      <div class="card-body2">
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-title text-uppercase text-muted mb-0">Eventos</h4>
+                            <span class="h2 font-weight-bold mb-0">{{countEven}}</span>
+                          </div>
+                            <div class="col-auto">
+                              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="fas fa-chart-bar"></i>
+                              </div>
+                            </div>
+                              <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                <span class="text-nowrap">Since last month</span>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stats-block">
+                <div class="col">
+                  <div class="stats-block2">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                      <div class="card-body2">
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-title text-uppercase text-muted mb-0">Mensajes</h4>
+                            <span class="h2 font-weight-bold mb-0">{{countMes}}</span>
+                          </div>
+                            <div class="col-auto">
+                              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="fas fa-chart-bar"></i>
+                              </div>
+                            </div>
+                              <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                <span class="text-nowrap">Since last month</span>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stats-block">
+                <div class="col">
+                  <div class="stats-block2">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                      <div class="card-body2">
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-title text-uppercase text-muted mb-0">Traffic</h4>
+                            <span class="h2 font-weight-bold mb-0">350,897</span>
+                          </div>
+                            <div class="col-auto">
+                              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="fas fa-chart-bar"></i>
+                              </div>
+                            </div>
+                              <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                <span class="text-nowrap">Since last month</span>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>   
+    
+ 
+                
+  <div class="card">
+    <div class="card-header">
+      Ultimas Actividades
+    </div>
+    <div class="card-body">
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block content_title %}{% if title %}
+<h1><i class="fa-solid fa-wrench"></i> Panel de Control</h1>
+{% endif %}{% endblock %}

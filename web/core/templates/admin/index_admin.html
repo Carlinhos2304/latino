@@ -1,0 +1,39 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static 'admin/css/dashboard.css' %}">{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <div class="card_inicio">
+  <div class="card">
+    <div class="card-header">
+      Vista General
+    </div>
+    <div class="card-body">
+
+    </div>
+  </div>
+</div>
+  <div class="card">
+    <div class="card-header">
+      Ultimas Actividades
+    </div>
+    <div class="card-body">
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content_title %}{% if title %}
+<h1><i class="fa-solid fa-wrench"></i> Panel de Control</h1>
+{% endif %}{% endblock %}

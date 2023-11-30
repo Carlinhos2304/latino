@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Mensaje
 
 
 class UserLoginForm(forms.Form):
@@ -77,4 +77,13 @@ class UserSignUpForm(forms.Form):
             raise forms.ValidationError('Las ContraseÃ±as no coinciden')
         return cd['password2']
 
+#Mensajes administrador
 
+class Messages(forms.ModelForm):
+    class Meta:
+        model = Mensaje
+        fields = ['asunto','mensaje']
+        widgets = {
+            'title' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Write a Title'}),
+            'description' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'Write a Description'}),
+        }

@@ -1,0 +1,15 @@
+<!-- formulario.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Mensaje</title>
+</head>
+<body>
+    <h2>Formulario de Mensaje</h2>
+    <form method="post" action='/form/'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+</body>
+</html>
