@@ -17,7 +17,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZRV6N3r9k4P3jGt/xFpF8l5FU9mPeuY9B/c/W3TmUUJ/YyXPSE5EQ3fCLBoMQ7kPdHeG2t61RzkmImenHF1bHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'core/assets/tuapoyoL.png' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -64,10 +69,89 @@
         </nav>
         {% block content %}{% endblock %}
 
-        <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5 footer-container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+        <footer class="footer">
+            <div class="container bottom_border">
+            <div class="row">
+            <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+            <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+            <!--headin5_amrc-->
+            <p class="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p><i class="fa fa-location-arrow"></i> 372 Somerset St. , North Plainfield, NJ, United States, New Jersey </p>
+            <p><i class="fa fa-phone"></i>  +1 914-281-1143  </p>
+            <p><i class="fa fa fa-envelope"></i> tuapoyolatino@gmail.com</p>
+            
+            
             </div>
+            
+            
+            <div class=" col-sm-4 col-md  col-6 col">
+            <h5 class="headin5_amrc col_white_amrc pt2">Redes Sociales</h5>
+            <!--headin5_amrc-->
+            <ul class="footer_ul_amrc">
+            <li><a href="https://web.facebook.com/tuapoyolatino/?_rdc=1&_rdr">Facebook</a></li>
+            <li><a href="https://www.instagram.com/tuapoyolatino?fbclid=IwAR25g2bedrx5T4J1M0UoTPaJipYiRx0oOdz6_FVGeRK8Zg2To7-7EKmMeAM">Instagram</a></li>
+            <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Ftuapoyolatino">Twitter</a></li>
+            <li><a href="https://www.tiktok.com/@tuapoyolatino?fbclid=IwAR2nrHXh9SfZiTKbDenPH2Rw16jhyWNC5_0OiRVH1kpnc9ctTzidk2dwx_I">Tik-Tok</a></li>
+            <li><a href="https://www.youtube.com/tuapoyolatino?fbclid=IwAR2-Dk9CT2H6sY5pKEaDDRBAdjACJVpRB3DtSPUOzp5HXoTsJRpBGzsqyOc">Youtube</li>
+            <li><a href="http://webenlance.com">Image Cropping</a></li>
+            </ul>
+            <!--footer_ul_amrc ends here-->
+            </div>
+            
+            
+            <div class=" col-sm-4 col-md  col-6 col">
+            <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+            <!--headin5_amrc-->
+            <ul class="footer_ul_amrc">
+            <li><a href="http://webenlance.com">Remove Background</a></li>
+            <li><a href="http://webenlance.com">Shadows & Mirror Reflection</a></li>
+            <li><a href="http://webenlance.com">Logo Design</a></li>
+            <li><a href="http://webenlance.com">Vectorization</a></li>
+            <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
+            <li><a href="http://webenlance.com">Image Cropping</a></li>
+            </ul>
+            <!--footer_ul_amrc ends here-->
+            </div>
+            
+            
+            <div class=" col-sm-4 col-md  col-12 col">
+            <h5 class="headin5_amrc col_white_amrc pt2">Post facebook</h5>
+            <!--headin5_amrc ends here-->
+            
+            <ul class="footer_ul2_amrc">
+            <li><a href="#"><i class="fab fa-facebook fleft padding-right"></i> </a><p>Ultimos Post...<a href="#"></a></p></li>
+            <li><a href="#"><i class="fab fa-facebook fleft padding-right"></i> </a><p>Ultimos Post...<a href="#"></a></p></li>
+            <li><a href="#"><i class="fab fa-facebook fleft padding-right"></i> </a><p>Ultimos Post...<a href="#"></a></p></li>
+            </ul>
+            <!--footer_ul2_amrc ends here-->
+            </div>
+            </div>
+            </div>
+            
+            
+            <div class="container">
+            <ul class="foote_bottom_ul_amrc">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'cursos' %}">Cursos</a></li>
+            <li><a href="{% url 'eventos' %}">Eventos</a></li>
+            <li><a href="{% url 'recursos' %}">Recursos</a></li>
+            <li><a href="{% url 'testimonios' %}">Testimonios</a></li>
+            <li><a href="{% url 'galeria' %}">Galeria</a></li>
+            <li><a href="{% url 'cyp' %}">Patrocinadores</a></li>
+            <li><a href="{% url 'contactoF' %}">Contacto</a></li>
+            </ul>
+            <!--foote_bottom_ul_amrc ends here-->
+            <p class="text-center">TuApoyoLatino@2023 | Todos los derechos Reservados
+            
+            <ul class="social_footer_ul">
+            <li><a href="https://web.facebook.com/tuapoyolatino/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Ftuapoyolatino"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/tuapoyolatino?fbclid=IwAR3MuZgX2CP9XHi0ss2sVEHgc-oD-pwUvurK0SWUfeTTvJwg8Vc6RNLiTuE"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://www.instagram.com/tuapoyolatino?fbclid=IwAR1FvyJ_9B4oexNEzuD6C9j1yoXUWylP2HJnbGSXp1gzFnh2YSGwTLrjiHU"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <!--social_footer_ul ends here-->
+            </div>
+            
         </footer>
         
         
@@ -85,6 +169,11 @@
         <!-- Asegúrate de que jQuery y Bootstrap JS estén incluidos después de Bootstrap CSS -->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
         
         <!-- Core theme JS-->
