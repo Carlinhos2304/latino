@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Testimonios</h2>
+
+    <div class="row">
+      <!-- Testimonio 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 1">
+          <div class="card-body">
+            <h5 class="card-title">Carlos Miguel</h5>
+            <p class="card-text">Gracias Apoyo Latino ya no me dicen Negro.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 2">
+          <div class="card-body">
+            <h5 class="card-title">Marcelo Salamanca</h5>
+            <p class="card-text">Gracias por todo el Apoyo que me han brindado!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 3">
+          <div class="card-body">
+            <h5 class="card-title">Nicolas Cornejo</h5>
+            <p class="card-text">Gracias Apoyo Latino me mejoraron la Vida!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

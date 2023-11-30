@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Cursos Disponibles</h2>
+
+    <!-- Lista de Cursos -->
+    <div class="row">
+      <!-- Curso 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/financiera.jpg' %}" class="card-img-top" alt="Curso 1">
+          <div class="card-body">
+            <h5 class="card-title">TAL Educación Financiera 2022</h5>
+            <p class="card-text">Descripción corta del curso.</p>
+            <a href="#" class="btn btn-primary">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/financiera.jpg' %}" class="card-img-top" alt="Curso 2">
+          <div class="card-body">
+            <h5 class="card-title">TAL Presentacion</h5>
+            <p class="card-text">Descripción corta del curso.</p>
+            <a href="#" class="btn btn-primary">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puedes agregar más cursos según sea necesario -->
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

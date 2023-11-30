@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Recursos</h2>
+
+    <!-- Tarjetas de Recursos -->
+    <div class="row">
+      <!-- Recurso 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/preguntas3.png' %}" class="card-img-top" alt="Recurso 1">
+          <div class="card-body">
+            <h5 class="card-title">Inmigración:</h5>
+            <p class="card-text">Aquellos que buscan servicios de inmigración, incluidas solicitudes de visa, tarjetas de residencia y ciudadanía.</p>
+            <a href="#" class="btn btn-primary">Ver Recurso</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recurso 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/educacion5.png' %}" class="card-img-top" alt="Recurso 2">
+          <div class="card-body">
+            <h5 class="card-title">Estudiantes y Padres:</h5>
+            <p class="card-text">personas que buscan orientación sobre oportunidades educativas, becas y ayuda financiera.</p>
+            <a href="#" class="btn btn-primary">Ver Recurso</a>
+          </div>
+        </div>
+      </div>
+
+       <!-- Recurso 3 -->
+       <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'core/assets/img/comprar4.png' %}" class="card-img-top" alt="Recurso 2">
+          <div class="card-body">
+            <h5 class="card-title">Individuos y Familias:</h5>
+            <p class="card-text">quienes buscan ayuda para mejorar sus puntajes crediticios, comprar automóviles y encontrar viviendas asequibles.</p>
+            <a href="#" class="btn btn-primary">Ver Recurso</a>
+          </div>
+        </div>
+      </div>
+
+    
+
+      <!-- Puedes agregar más recursos según sea necesario -->
+
+    </div>
+  </div>
+
+
+{% endblock %}

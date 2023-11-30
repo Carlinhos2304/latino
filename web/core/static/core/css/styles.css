@@ -11405,3 +11405,47 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
 
 /* fin CSS FOOTER  */
+
+
+/* CSS EVENTOS  */
+.containerEventos{
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px !important;
+}
+
+.containerEventos img{
+  width: 70%;
+}
+/* FIN EVENTOS  */
+
+
+
+/* TESTIMONIOS  */
+
+.container h2{
+  font-family: 'Oswald', sans-serif;
+}
+
+
+/* FIN DE TESTIMONIOS  */
+
+
+/* CURSOS  */
+
+
+/* CURSOS CSS FIN  */
+
+
+/* RECURSOS  */
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* RECURSOS  */
+
+
