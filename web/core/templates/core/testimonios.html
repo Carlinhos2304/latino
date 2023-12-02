@@ -3,42 +3,109 @@
 
 
 {% block content %}
+<br><br><br>
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Testimonios</h2>
+  <h2 class="text-center mb-4">Testimonios</h2>
+  <br><br><br>
 
-    <div class="row">
-      <!-- Testimonio 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 1">
-          <div class="card-body">
-            <h5 class="card-title">Carlos Miguel</h5>
-            <p class="card-text">Gracias Apoyo Latino .</p>
+  <div id="testimoniosCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- Grupo 1 de 3 tarjetas -->
+      <div class="carousel-item active">
+        <div class="row">
+          <!-- Testimonio 1 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 1 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 1" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Carlos Miguel</h5>
+                <p class="card-text">Gracias por todo el Apoyo que me han brindado.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonio 2 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 2 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 2" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Marcelo Salamanca</h5>
+                <p class="card-text">Gracias por todo el Apoyo que me han brindado.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonio 3 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 3 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 3" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Nicolas Cornejo</h5>
+                <p class="card-text">Gracias Apoyo Latino me mejoraron la Vida.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Testimonio 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 2">
-          <div class="card-body">
-            <h5 class="card-title">Marcelo Salamanca</h5>
-            <p class="card-text">Gracias por todo el Apoyo que me han brindado!</p>
+      <!-- Grupo 2 de 3 tarjetas -->
+      <div class="carousel-item">
+        <div class="row">
+          <!-- Testimonio 4 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 4 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 4" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Nicole Araya</h5>
+                <p class="card-text">Gracias por todo el Apoyo que me han brindado. </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Testimonio 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="{% static 'core/assets/img/avatar.png' %}" class="card-img-top" alt="Avatar 3">
-          <div class="card-body">
-            <h5 class="card-title">Nicolas Cornejo</h5>
-            <p class="card-text">Gracias Apoyo Latino me mejoraron la Vida!</p>
+          <!-- Testimonio 5 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 5 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 5" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Richard FuenteAlba</h5>
+                <p class="card-text">Gracias por todo el Apoyo que me han brindado.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonio 6 -->
+          <div class="col-md-4 mb-4">
+            <!-- Contenido de la tarjeta del testimonio 6 -->
+            <div class="testimonial-card">
+              <img src="{% static 'core/assets/img/apoyo.jpg' %}" class="card-img-top" alt="Avatar 6" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">Guillermo Olivo</h5>
+                <p class="card-text">Gracias por todo el Apoyo que me han brindado.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Botones de control -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
   </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<br><br><br><br><br><br><br>
+
 {% endblock %}

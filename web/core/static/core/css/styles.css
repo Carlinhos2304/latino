@@ -11218,9 +11218,7 @@ p {
   .container h2 {
     margin-left: -10px !important; 
   }
-  .container img{
-    margin-left: 60px;
-  }
+  
 }
 
 
@@ -11419,12 +11417,77 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 /* FIN EVENTOS  */
 
 
+/* TESTIMONIOS */
 
-/* TESTIMONIOS  */
-
-.container h2{
+.container h2 {
   font-family: 'Oswald', sans-serif;
 }
+
+.testimonial-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card-img-top {
+  object-fit: cover;
+  height: 200px;
+  margin: 0 auto;
+}
+.testimonial-card img{
+  width: 20%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Eliminar cualquier transición o transformación al hacer hover */
+.testimonial-card:hover {
+  transition: none;
+  transform: none;
+}
+
+/* CSS BOTONES DE CARRUSEL */
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent; /* Fondo transparente */
+  color: #808080; /* Gris */
+  margin-left: -150px;
+  margin-right: -150px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(40%); /* Ajusta la opacidad del ícono según sea necesario */
+}
+
+@media (max-width: 767px) {
+  .carousel-inner {
+    min-height: 800px; /* Ajusta la altura según tus necesidades */
+  }
+
+  .testimonial-card {
+    width: 100%; /* Ocupa el ancho completo en dispositivos pequeños */
+  }
+}
+
+
+
+
+
 
 
 /* FIN DE TESTIMONIOS  */
