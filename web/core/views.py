@@ -5,8 +5,9 @@ from .forms import UserLoginForm, UserSignUpForm
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http.response import HttpResponse, JsonResponse
+from django.core.paginator import Paginator
 #Imports Admin
-from .models import Mensaje, Calendario
+from .models import Mensaje, Calendario, Cursos, Eventos
 from .forms import Messages
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
@@ -20,10 +21,20 @@ def index(request):
     return render(request,"core/index.html")
 
 def cursos(request):
-    return render(request, "core/cursos.html")
+    cur=Cursos.objects.all()
+    paginator = Paginator(cur,2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, "core/cursos.html", {'cur': page_obj})
 
 def eventos(request):
-    return render(request, "core/eventos.html")
+    eve=Eventos.objects.all()
+    paginator = Paginator(eve,1)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "core/eventos.html", {'eve': page_obj})
 
 def recursos(request):
     return render(request, "core/recursos.html")

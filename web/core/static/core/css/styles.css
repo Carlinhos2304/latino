@@ -11495,7 +11495,68 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 
 /* CURSOS  */
 
+.cursos-container {
+  max-width: 800px;
+  margin: 50px auto;
+}
 
+.cursos-title {
+  text-align: center;
+  margin-bottom: 30px;
+  
+}
+
+
+
+.curso-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.curso-card:hover {
+  transform: scale(1.05);
+}
+
+.curso-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  
+  
+}
+
+.curso-description {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.btn-ver-detalles {
+  background-color: #ff7f50;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-ver-detalles:hover {
+  background-color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .curso-column {
+      width: 100%;
+  }
+}
 /* CURSOS CSS FIN  */
 
 
@@ -11599,3 +11660,73 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 /* FIN DE CONTACTO CSS  */
 
 
+/* EVENTOS CSS  */
+
+.containerEventos {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.eventos-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.evento-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.evento-card:hover {
+  transform: scale(1.05);
+}
+
+.evento-nombre {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.evento-descripcion {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.evento-fechayhora {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.evento-direccion {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.evento-imagen {
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-left: 15%;
+}
+
+.evento-asistente {
+  margin-top: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .evento-column {
+      width: 50%;
+  }
+}
+
+
+/* FIN EVENTOS CSS  */

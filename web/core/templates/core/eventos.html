@@ -3,22 +3,47 @@
 
 
 {% block content %}
-<br>
+
 <div class="containerEventos">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h2>Eventos</h2>
+            <h2 class="eventos-title">Eventos</h2>
         </div>
     </div>
-
+    {% for ev in eve %}
     <div class="row mt-4">
-        <div class="col-md-6 offset-md-3 text-center">
-            <img src="{% static 'core/assets/img/informaciones.png' %}" class="img-fluid rounded" alt="Evento Imagen" style="max-width: 100%;">
+        <div class="col-md-6 offset-md-3 evento-column">
+            <div class="card evento-card">
+                <div class="card-body">
+                    <img src="{{ ev.imagen.url }}" alt="Imagen del Evento" class="evento-imagen">
+                    <br><br>
+                    <h5 class="card-title evento-nombre">{{ ev.nombre }}</h5>
+                    <p class="card-text evento-descripcion">{{ ev.descripcion }}</p>
+                    <p class="evento-fechayhora">Fecha y Hora: {{ ev.fechayhora }}</p>
+                    <p class="evento-direccion">Dirección: {{ ev.direccion }}</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Puedes agregar más contenido relacionado con eventos aquí -->
-
+    {% endfor %}
 </div>
-<br>
+
+
+<nav aria-label="Page navigation example">
+  
+    <ul class="pagination justify-content-center">
+       {% if eve.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li> 
+        <li class="page-item"><a class="page-link" href="?page={{ eve.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      {% if eve.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ eve.next_page_number }}">Next</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ eve.paginator.num_pages }}">Last</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+
+
+
 {% endblock %}

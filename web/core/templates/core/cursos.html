@@ -4,39 +4,41 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Cursos Disponibles</h2>
 
-    <!-- Lista de Cursos -->
-    <div class="row">
+
+<div class="cursos-container">
+  <h2 class="cursos-title">Cursos Disponibles</h2>
+
+  <!-- Lista de Cursos -->
+  <div class="row">
       <!-- Curso 1 -->
-      <div class="col-md-6 mb-4">
-        <div class="card">
-          <img src="{% static 'core/assets/img/financiera.jpg' %}" class="card-img-top" alt="Curso 1">
-          <div class="card-body">
-            <h5 class="card-title">TAL Educación Financiera 2022</h5>
-            <p class="card-text">Descripción corta del curso.</p>
-            <a href="#" class="btn btn-primary">Ver Detalles</a>
+      {% for cu in cur %}
+      <div class="col-md-6 curso-column mb-4">
+          <div class="card curso-card">
+              <div class="card-body">
+                  <h5 class="card-title curso-title">{{cu.nombre}}</h5>
+                  <p class="card-text curso-description">{{cu.descripcion}}</p>
+                  <a href="#" class="btn btn-primary btn-ver-detalles">Descargar</a>
+              </div>
           </div>
-        </div>
       </div>
-
-      <!-- Curso 2 -->
-      <div class="col-md-6 mb-4">
-        <div class="card">
-          <img src="{% static 'core/assets/img/financiera.jpg' %}" class="card-img-top" alt="Curso 2">
-          <div class="card-body">
-            <h5 class="card-title">TAL Presentacion</h5>
-            <p class="card-text">Descripción corta del curso.</p>
-            <a href="#" class="btn btn-primary">Ver Detalles</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Puedes agregar más cursos según sea necesario -->
-
-    </div>
+      {% endfor %}
+  </div>
 </div>
+
+<nav aria-label="Page navigation example">
+  
+  <ul class="pagination justify-content-center">
+     {% if cur.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1">First</a></li> 
+      <li class="page-item"><a class="page-link" href="?page={{ cur.previous_page_number }}">Previous</a></li>
+    {% endif %}
+    {% if cur.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ cur.next_page_number }}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{ cur.paginator.num_pages }}">Last</a></li>
+    {% endif %}
+  </ul>
+</nav>
 
 
 
