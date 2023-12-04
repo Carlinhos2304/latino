@@ -11512,3 +11512,90 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 /* RECURSOS  */
 
 
+/* CONTACTOF CSS  */
+
+#contact-form {
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#contact-form h2 {
+  text-align: center;
+  color: #333;
+  font-family: 'Oswald', sans-serif;
+}
+
+#contact-form img {
+  float: left;
+  width: 80%; /* La imagen ocupa el 100% del ancho en dispositivos móviles */
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Espacio entre la imagen y el formulario */
+  margin-left: 10%;
+}
+
+#contact-form form {
+  width: 100%; /* El formulario ocupa el 100% del ancho en dispositivos móviles */
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#contact-form button:hover {
+  background-color: #45a049;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 600px) {
+  #contact-form img {
+      width: 100%; /* Ajusta el ancho de la imagen en dispositivos móviles */
+      margin-bottom: 10px;
+  }
+
+  #contact-form form {
+      width: 100%; /* Ajusta el ancho del formulario en dispositivos móviles */
+  }
+}
+
+
+
+#contact-form form label {
+  /* Estilos para las etiquetas del formulario */
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* Ajusta el margen inferior de las etiquetas */
+}
+
+#contact-form form input, 
+#contact-form form select,
+#contact-form form textarea {
+  /* Estilos para los campos de entrada y áreas de texto */
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+/* FIN DE CONTACTO CSS  */
+
+

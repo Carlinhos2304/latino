@@ -45,6 +45,7 @@ def register(request):
 
 
 
+
 def contactoF(request):
     return render(request, "core/contactoF.html")
 
@@ -115,7 +116,7 @@ def enviar_mensaje(request):
     else:
         form = Messages()
 
-    return render(request, 'admin/formprueba.html', {'form': form})
+    return render(request, 'core/contactoF.html', {'form': form})
 
 def eliminar_mensaje(request):
     if request.method == 'POST':

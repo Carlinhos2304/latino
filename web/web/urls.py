@@ -22,13 +22,14 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.logout_view, name='logout'),
 
-    path('contactoF/', views.contactoF, name='contactoF'),
+    path('contactoF/', views.enviar_mensaje, name='contactoF'),
+
     #Urls Admin
     path('inbox/', views.inbox, name='inbox'),
     path('activity/', views.activity, name='activity'),
     path('calendar/', views.calendar, name = 'calendar'),
     path('all_calendar/', views.all_calendar, name = 'all_calendar'),
-    path('form/',views.enviar_mensaje, name="form"),
+   
     path('responder',views.responder_mensaje,name='responder_mensaje'),
     path('eliminar/',views.eliminar_mensaje,name='eliminar_mensaje'),
     

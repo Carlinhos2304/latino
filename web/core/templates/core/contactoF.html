@@ -4,4 +4,23 @@
 
 {% block content %}
 
+
+<html>
+    <head>
+        <title>Formulario de Mensaje</title>
+    </head>
+    <body>
+        <div id="contact-form">
+            <h2>Formulario de Mensaje</h2>
+            <img src="{% static 'core/assets/img/contactos.png' %}" alt="Imagen de ejemplo">
+    
+            <form method="post" action="/contactoF/">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </body>
+</html>
+
 {% endblock %}
