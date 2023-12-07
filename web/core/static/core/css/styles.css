@@ -11664,12 +11664,27 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 /* EVENTOS CSS  */
 
 .containerEventos {
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 1700px;
+  margin: 50px auto; /* Centra el contenedor en dispositivos más grandes */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .evento-column {
+    width: 100%; /* O el ancho deseado para dispositivos más pequeños */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+  }
+
+  .row {
+    text-align: center; /* Centra la tarjeta horizontalmente */
+  }
+
+  .evento-imagen{
+    margin-left: 8% !important;
+  }
 }
 
 .eventos-title {
@@ -11683,6 +11698,7 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
+  max-width: 600%;
 }
 
 .evento-card:hover {
