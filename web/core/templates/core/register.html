@@ -12,41 +12,36 @@
       </div>
         <br>
     </div>
-    
-        <div class="tab-pane fade show active" id="navbarLogin-signup" role="tabpanel"> 
+
+        <div class="tab-pane fade show active" id="navbarLogin-signup" role="tabpanel">
             <form id="register" class="text-center" action="{% url 'signup'%}" method="POST">
                 {% csrf_token %}{% csrf_token %}{% csrf_token %}
-                
+
                 <div class="form-outline form-auth-md mb-4">
-                
+
                     <label class="form-label" style="margin-left: 0px;">Nombre</label>
                     {{ signupForm.nombre }}
                   </div>
 
                 <div class="form-outline form-auth-mdb mb-4">
-                 
+
                   <label class="form-label" style="margin-left: 0px;">Correo Electronico</label>
                   {{ signupForm.correo }}
                 </div>
 
+
                 <div class="form-outline form-auth-mdb mb-4">
-                 
-                  <label class="form-label" style="margin-left: 0px;">Contacto</label>
-                  {{ signupForm.correo }}
-                </div>
-  
-                <div class="form-outline form-auth-mdb mb-4">
-                  
+
                   <label class="form-label" style="margin-left: 0px;">Crear Contraseña</label>
                     {{ signupForm.password }}
                 </div>
-  
+
                 <div class="form-outline form-auth-mdb mb-4">
-                 
+
                   <label class="form-label" style="margin-left: 0px;">Repita Contraseña</label>
                     {{ signupForm.password2 }}
                 </div>
-  
+
                 <button class="btn btn-primary btn-block mb-3" type="submit">Registrar</button>
             </form>
         </div>

@@ -4,10 +4,10 @@ from django.contrib.auth import authenticate, get_user_model, login, logout
 from .forms import UserLoginForm, UserSignUpForm
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404, redirect, render
-from django.http.response import HttpResponse, JsonResponse
+from django.http.response import JsonResponse
 from django.core.paginator import Paginator
 #Imports Admin
-from .models import Mensaje, Calendario, Cursos, Eventos
+from .models import Mensaje, Calendario, Cursos, Eventos, Actividad
 from .forms import Messages
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
@@ -25,7 +25,7 @@ def cursos(request):
     paginator = Paginator(cur,2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    
+
     return render(request, "core/cursos.html", {'cur': page_obj})
 
 def eventos(request):
@@ -53,7 +53,6 @@ def formulario(request):
 
 def register(request):
     return render(request, "core/register.html")
-
 
 
 
@@ -100,23 +99,21 @@ def signup_view(request):
                 is_active=True
             )
             login(request, user)
+            Actividad.objects.create(sender=user,verb="se ha registrado")
             return redirect('index')
 
         except Exception as e:
             print(e)
             return JsonResponse({'detail': f'{e}'})
 
-def logout_view(request):
-    logout(request)
-    return redirect('index')
 
 
 def inbox(request):
-    #messages = Mensaje.objects.raw('select b.id , a.nombre,a.correo,b.asunto,b.mensaje,b.creado from admin_user_userprofile a,admin_user_mensaje b where a.nombre = remitente_id')
-    #print(messages)
+    messages = Mensaje.objects.raw('select b.id , a.nombre,a.correo,b.asunto,b.mensaje,b.creado from core_userprofile a,core_mensaje b where a.nombre = remitente_id')
     return render(request,'admin/inbox.html',{'messages': messages})
 
-# Vista que envia el mensaje del formulario 
+# Vista que envia el mensaje del formulario
+@login_required(login_url="/formulario/")
 def enviar_mensaje(request):
     if request.method == 'POST':
         form = Messages(request.POST)
@@ -163,11 +160,12 @@ def responder_mensaje(request):
 
         messages.success(request,"Se ha enviado tu correo")
         return redirect('inbox')
-    
+
 
 @login_required(login_url="/admin/login/")
 def activity(request):
-    return render(request, 'admin/activity.html')
+    act = Actividad.objects.all()
+    return render(request, 'admin/activity.html',{'act':act })
 
 @login_required(login_url="/admin/login/")
 def calendar(request):

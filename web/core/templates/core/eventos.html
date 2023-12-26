@@ -18,7 +18,7 @@
                     <img src="{{ ev.imagen.url }}" alt="Imagen del Evento" class="evento-imagen">
                     <br><br>
                     <h5 class="card-title evento-nombre">{{ ev.nombre }}</h5>
-                    <p class="card-text evento-descripcion">{{ ev.descripcion }}</p>
+                    <p class="card-text evento-descripcion">{{ ev.descripcion|linebreaksbr  }}</p>
                     <p class="evento-fechayhora">Fecha y Hora: {{ ev.fechayhora }}</p>
                     <p class="evento-direccion">Dirección: {{ ev.direccion }}</p>
                 </div>
@@ -30,10 +30,10 @@
 
 
 <nav aria-label="Page navigation example">
-  
+
     <ul class="pagination justify-content-center">
        {% if eve.has_previous %}
-        <li class="page-item"><a class="page-link" href="?page=1">First</a></li> 
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
         <li class="page-item"><a class="page-link" href="?page={{ eve.previous_page_number }}">Previous</a></li>
       {% endif %}
       {% if eve.has_next %}

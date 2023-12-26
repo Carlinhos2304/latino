@@ -1,9 +1,5 @@
-
-
-
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth.decorators import login_required
 from core import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -29,16 +25,16 @@ urlpatterns = [
     path('activity/', views.activity, name='activity'),
     path('calendar/', views.calendar, name = 'calendar'),
     path('all_calendar/', views.all_calendar, name = 'all_calendar'),
-   
+    path('form/',views.enviar_mensaje, name="form"),
     path('responder',views.responder_mensaje,name='responder_mensaje'),
     path('eliminar/',views.eliminar_mensaje,name='eliminar_mensaje'),
-    
+
     path('cyp/', views.cyp, name='cyp'),
 ]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
-    urlpatterns +=static(settings.MEDIA_URL, 
+    urlpatterns +=static(settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT)
 
 admin.site.index_title = "Panel de Control"

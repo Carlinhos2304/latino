@@ -19,7 +19,7 @@
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
               </div>
               <div class="col-11">
-                  <input type="text" class="form-control" placeholder="Buscar " aria-label="Buscar " aria-describedby="button-addon2">   
+                  <input type="text" class="form-control" placeholder="Buscar " aria-label="Buscar " aria-describedby="button-addon2">
               </div>
             </div>
             <table id="datatablesSimple1" class="table table-hover no-select">
@@ -31,7 +31,7 @@
                     <th>Fecha</th>
                   </tr>
                 </thead>
-                {# % for msg in messages % #}
+                {% for msg in messages %}
                 <tbody>
                   <tr>
                     <!--Editar campo de username-->
@@ -44,7 +44,7 @@
                       <td class="none">{{ msg.id }}</td>
                   </tr>
                 </tbody>
-                {# % endfor % #}
+                {% endfor %}
             </table>
           </div>
         </div>
@@ -64,7 +64,7 @@
                     <p><strong>Fecha:</strong> <span id="detailDate"></span></p>
                     <p><strong>Asunto:</strong> <span id="detailSubject"></span></p>
                     <hr>
-                    <p><strong>Mensaje:</strong></p> <p id="detailContent"></p> 
+                    <p><strong>Mensaje:</strong></p> <p id="detailContent"></p>
                 </div>
                 <div class="botones">
                   <div class="d-flex justify-content-between align-items-center">
@@ -89,7 +89,7 @@
                   <textarea id="mensaje" name="mensaje" class="form-control" rows="4" placeholder="Escribe tu respuesta aquí"></textarea><br>
                   <button id="sendReply" class="btn btn-primary">Enviar</button>
                 </form>
-                
+
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@ replyAreaVisible = false;
 }
 
 // Mostrar contenedor del formulario
-$('#formContent').removeClass('d-none'); 
+$('#formContent').removeClass('d-none');
 $('#selectElementMessage').addClass('d-none');
 $('#img').addClass('d-none');
 $('#initialMessage').hide();

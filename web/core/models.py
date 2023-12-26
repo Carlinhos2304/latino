@@ -1,14 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser , PermissionsMixin , BaseUserManager
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
+
+class MyModel(models.Model):
+    pass
+    class Meta:
+        managed = False
+        verbose_name = 'My Model'
+        verbose_name = 'My Model'
 
 #UserManager
 class CustomAccountManager(BaseUserManager):
@@ -56,6 +60,10 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'nombre'
     REQUIRED_FIELDS = ['correo']
 
+    class Meta:
+        verbose_name="Usuario"
+        verbose_name_plural="Usuarios"
+
     def __str__(self):
         return self.nombre
 
@@ -68,7 +76,7 @@ class Eventos(models.Model):
     direccion = models.CharField(max_length=100)
     imagen = models.ImageField(upload_to="projects",verbose_name="Imagen")
     asistentes = models.ManyToManyField(settings.AUTH_USER_MODEL,through='Asistente')
-    
+
     class Meta:
         verbose_name="Evento"
         verbose_name_plural="Eventos"
@@ -109,18 +117,12 @@ class Asistente(models.Model):
 class Actividad(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL,related_name='Usuario',on_delete=models.CASCADE)
     verb = models.CharField(max_length=200)
-    target_ct = models.ForeignKey(ContentType, blank=True, null=True,
-    related_name='target_obj', on_delete=models.CASCADE)
-    target_id = models.PositiveIntegerField(null=True, blank=True)
-    target = GenericForeignKey('target_ct', 'target_id')
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('-created',)
 
-    def __str__(self):
-        return self.pk 
-  
+
 class Cursos(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(unique=True,max_length=100)

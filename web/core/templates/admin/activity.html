@@ -14,15 +14,29 @@
       <div class="card-header">
         Registro de Actividad
       </div>
-      <div class="card-body">
-  
+      <div class="card-body px-0 pt-0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-3">Registro</th>
+              <th scope="col">Actividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ac in act %}
+            <tr>
+              <td>{{ac.created}}</td>
+              <td>{{ac.sender}} {{ac.verb}} </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 {% endblock %}
 
 {% block content_title %}
-<img src="{% static 'core/icons/stadistics.png' %}" alt="Descripción de la imagen">
-<h1>Actividad</h1>
+<h1><i class="fa-solid fa-chart-line"></i> Actividad </h1>
 {% endblock %}
 

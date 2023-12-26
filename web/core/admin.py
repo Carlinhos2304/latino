@@ -1,6 +1,28 @@
 from django.contrib import admin
-from .models import Eventos,Cursos,Actividad,Mensaje,Asistente, UserProfile
+from .models import Eventos,Cursos,Actividad,Mensaje,Asistente, UserProfile, MyModel
+from django.contrib.admin.sites import AdminSite
 # Register your models here.
+
+class CustomAdminSite(AdminSite):
+    def index(self, request, extra_context=None):
+        countUser = UserProfile.objects.count()
+        countEven = Eventos.objects.count()
+        countMes = Mensaje.objects.count()
+        act = Actividad.objects.all()
+        extra_context = extra_context or {}
+        extra_context = {
+            'act' : act,
+            "countUser": countUser,
+            "countEven": countEven,
+            "countMes":countMes,
+        }
+
+        return super().index(request, extra_context)
+
+custom_admin_site = CustomAdminSite(name='customadmin')
+admin.site = custom_admin_site
+
+custom_admin_site.register(MyModel)
 
 class UserDetail(admin.ModelAdmin):
     list_display = ("nombre","correo","register_date")
